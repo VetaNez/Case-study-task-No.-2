@@ -1,0 +1,32 @@
+import datetime
+
+def day_of_week(day, month, year):
+    days = ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday', 'Sunday']
+    day_num = datetime.datetime(year, month, day).weekday()
+    return days[day_num]
+
+def is_leap_year(year):
+    if (year % 4 == 0 and year % 100 != 0) or (year % 400 == 0):
+        return True
+    else:
+        return False
+
+def calculate_age(year):
+    current_year = datetime.datetime.now().year
+    age = current_year - year
+    return age
+
+def format_birthday(day, month, year):
+    formatted_day = '*' * len(str(day))
+    formatted_month = '*' * len(str(month))
+    formatted_year = '*' * len(str(year))
+    return f"{formatted_day} {formatted_month} {formatted_year}"
+
+day = int(input("Enter the day of your birth: "))
+month = int(input("Enter the month of your birth: "))
+year = int(input("Enter the year of your birth: "))
+
+print(f"Day of the week: {day_of_week(day, month, year)}")
+print(f"Leap year: {is_leap_year(year)}")
+print(f"Your age: {calculate_age(year)} years old")
+print(f"Formatted birthday: {format_birthday(day, month, year)}")
